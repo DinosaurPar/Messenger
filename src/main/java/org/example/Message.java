@@ -58,6 +58,6 @@ public class Message {
     }
 
     public String toString() {
-        return "Отправитель: " + sender + ", получатель: " + recipient + ", время отправки: " + time + ", текст сообщения: " + text + ".";
+        return "Отправитель: " + sender.name + ", получатель: " + recipient.name + ", время отправки: " + time + ", текст сообщения: " + text + ".";
     }
 }

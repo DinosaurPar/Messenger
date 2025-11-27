@@ -1,17 +1,25 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
-
-        for (int i = 1; i <= 3; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        User zarina = new User("Zarina");
+        User kamil = new User("Kamil");
+        User alexey = new User("Alexey");
+        Group school = new Group("School", zarina, alexey);
+        school.addNewUser(kamil);
+        Channel meow = new Channel("Meow", alexey, kamil);
+        meow.addNewUser(zarina);
+        Message message1 = new Message(kamil, alexey, "Hello!");
+        Message message2 = new Message(alexey, kamil, "Hi");
+        school.sendMessageToGroup(alexey, school, "Good morning!");
+        meow.sendMessageToChannel(alexey, meow, "Я устал");
+        meow.sendMessageToChannel(kamil, meow, "Я тоже");
+        System.out.println("Все пользователи:");
+        zarina.printAllUsers();
+        System.out.println("Все участники группы School:");
+        school.showUsers();
+        System.out.println("Все участники канала Meow:");
+        meow.showUsers();
+        message1.printAllMessages();
     }
 }
